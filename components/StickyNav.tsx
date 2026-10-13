@@ -37,7 +37,7 @@ export default function StickyNav({
     >
       <div className="max-w-4xl mx-auto px-3 py-2 sm:py-2.5">
         {/* Main 3 Navigation Tabs */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-3 overflow-x-auto no-scrollbar">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           {MENU_SECTIONS.map((section) => {
             const isSelected = activeSectionId === section.id;
             return (
@@ -45,10 +45,10 @@ export default function StickyNav({
                 key={section.id}
                 type="button"
                 onClick={() => onSelectSection(section.id)}
-                className={`min-h-[44px] px-3.5 sm:px-5 py-2 rounded-full font-serif text-[13px] sm:text-[15px] font-bold tracking-wider uppercase transition-all duration-200 shrink-0 select-none cursor-pointer border ${
+                className={`min-h-[44px] px-4 sm:px-6 py-2 rounded-full font-serif text-[13px] sm:text-[15px] font-bold tracking-wider uppercase transition-all duration-200 shrink-0 select-none cursor-pointer border ${
                   isSelected
-                    ? "bg-[#B5121B] text-white border-[#B5121B] shadow-sm"
-                    : "bg-[#EFE5D6]/80 text-[#191919] border-[#B58B45]/30 hover:bg-[#EFE5D6] hover:border-[#B58B45]/60"
+                    ? "bg-[#B5121B] text-white border-[#B5121B] shadow-md ring-2 ring-[#B58B45]/30"
+                    : "bg-[#EFE5D6]/90 text-[#191919] border-[#B58B45]/35 hover:bg-[#EFE5D6] hover:border-[#B58B45]/70"
                 }`}
               >
                 {section.name}
@@ -70,7 +70,7 @@ export default function StickyNav({
               key={category.id}
               type="button"
               onClick={() => handleCategoryClick(category.id)}
-              className="min-h-[36px] px-2.5 py-1 text-xs font-sans font-medium text-[#191919] bg-[#EFE5D6]/60 hover:bg-[#B5121B] hover:text-white rounded-md whitespace-nowrap transition-colors border border-[#B58B45]/20 cursor-pointer"
+              className="min-h-[36px] px-3 py-1 text-xs font-sans font-medium text-[#191919] bg-[#EFE5D6]/70 hover:bg-[#B5121B] hover:text-white rounded-md whitespace-nowrap transition-colors border border-[#B58B45]/25 cursor-pointer active:scale-95"
             >
               {category.name}
             </button>
