@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C59B4E"/>
+      <stop offset="50%" stop-color="#B58B45"/>
+      <stop offset="100%" stop-color="#9A7030"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#B58B45" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Circular Luxury Crest Frame -->
+  <circle cx="300" cy="210" r="140" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <circle cx="300" cy="210" r="132" fill="none" stroke="#B5121B" stroke-width="3"/>
+  <circle cx="300" cy="210" r="122" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Subtle Diamond Accents -->
+  <polygon points="300,68 304,76 300,84 296,76" fill="#B58B45"/>
+  <polygon points="300,336 304,344 300,352 296,344" fill="#B58B45"/>
+  <polygon points="160,210 168,206 176,210 168,214" fill="#B58B45"/>
+  <polygon points="424,210 432,206 440,210 432,214" fill="#B58B45"/>
+
+  <!-- Stylized Z Monogram -->
+  <g transform="translate(300, 215)">
+    <!-- Main Z Letterform in Zorrah Red & Gold -->
+    <path d="M-55,-68 
+             L55,-68 
+             C58,-68 60,-65 58,-62 
+             L-34,50 
+             L56,50 
+             C60,50 62,54 60,58 
+             L54,68 
+             C52,70 48,70 44,70 
+             L-55,70 
+             C-59,70 -61,66 -59,62 
+             L33,-48 
+             L-56,-48 
+             C-60,-48 -62,-52 -60,-56 
+             Z" 
+          fill="#B5121B" 
+          filter="url(#subtleGlow)" />
+
+    <!-- Center Accent Slash / Crossbar in Gold -->
+    <line x1="-38" y1="2" x2="38" y2="2" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="0" cy="2" r="5" fill="#B58B45"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <!-- ZORRAH -->
+  <text x="300" y="420" 
+        font-family="'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif" 
+        font-size="64" 
+        font-weight="700" 
+        letter-spacing="14" 
+        fill="#111111" 
+        text-anchor="middle">
+    ZORRAH
+  </text>
+
+  <!-- Decorative Divider Line -->
+  <line x1="210" y1="448" x2="390" y2="448" stroke="#B58B45" stroke-width="1.5"/>
+  <polygon points="300,445 303,448 300,451 297,448" fill="#B5121B"/>
+
+  <!-- RESTAURANT AND LOUNGE -->
+  <text x="300" y="480" 
+        font-family="'DM Sans', 'Inter', -apple-system, sans-serif" 
+        font-size="16" 
+        font-weight="600" 
+        letter-spacing="8" 
+        fill="#B5121B" 
+        text-anchor="middle">
+    RESTAURANT &amp; LOUNGE
+  </text>
+
+  <!-- Tagline or Location Sub-mark -->
+  <text x="300" y="512" 
+        font-family="'Playfair Display', serif" 
+        font-size="13" 
+        font-style="italic" 
+        letter-spacing="3" 
+        fill="#666666" 
+        text-anchor="middle">
+    CONTEMPORARY AFRICAN LUXURY
+  </text>
+</svg>
