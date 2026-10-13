@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../components";
+@source "../app";
 
 :root {
   --color-zorrah-bg: #F8F3EA;
@@ -10,6 +12,10 @@
   --color-zorrah-black: #111111;
   --color-zorrah-text: #191919;
   --color-zorrah-muted: #5A5650;
+
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 @theme {
@@ -28,18 +34,20 @@
   --font-sans: 'DM Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Base styles */
+/* ==========================================================================
+   GLOBAL BASE & RESTAURANT MENU CORE STYLES
+   ========================================================================== */
 html {
   scroll-behavior: smooth;
-  background-color: #F8F3EA;
-  color: #191919;
+  background-color: #F8F3EA !important;
+  color: #191919 !important;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: #F8F3EA;
-  color: #191919;
+  font-family: 'DM Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F8F3EA !important;
+  color: #191919 !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -55,11 +63,269 @@ body {
   scrollbar-width: none;
 }
 
-/* Ensure smooth section scrolling margin */
-.scroll-section {
-  scroll-margin-top: 130px;
+/* ==========================================================================
+   FAIL-SAFE RESTAURANT MENU COMPONENT STYLES
+   ========================================================================== */
+
+/* Header */
+.zorrah-header {
+  width: 100%;
+  background-color: #F8F3EA;
+  border-bottom: 1px solid rgba(181, 139, 69, 0.2);
+  text-align: center;
+  padding: 24px 16px 16px;
+  position: relative;
 }
 
-.scroll-category {
+.zorrah-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #B5121B;
+  text-transform: uppercase;
+  margin: 8px 0 2px;
+}
+
+.zorrah-subtitle {
+  font-size: 13px;
+  font-style: italic;
+  color: #5A5650;
+  margin: 0;
+}
+
+/* Sticky Navigation */
+.zorrah-sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background-color: rgba(248, 243, 234, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(181, 139, 69, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 10px 12px;
+}
+
+.zorrah-tabs-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.zorrah-tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.zorrah-tab {
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(181, 139, 69, 0.35);
+  background-color: rgba(239, 229, 214, 0.9);
+  color: #191919;
+}
+
+.zorrah-tab.active {
+  background-color: #B5121B !important;
+  color: #FFFFFF !important;
+  border-color: #B5121B !important;
+  box-shadow: 0 2px 6px rgba(181, 18, 27, 0.35);
+}
+
+.zorrah-chips-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(181, 139, 69, 0.15);
+}
+.zorrah-chips-container::-webkit-scrollbar {
+  display: none;
+}
+
+.zorrah-chip {
+  min-height: 34px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: rgba(239, 229, 214, 0.7);
+  color: #191919;
+  border: 1px solid rgba(181, 139, 69, 0.25);
+  transition: all 0.15s ease;
+}
+.zorrah-chip:hover {
+  background-color: #B5121B;
+  color: #FFFFFF;
+  border-color: #B5121B;
+}
+
+/* Search Bar */
+.zorrah-search-wrapper {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  position: relative;
+}
+
+.zorrah-search-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 40px;
+  font-size: 15px;
+  background-color: #F8F3EA;
+  color: #191919;
+  border: 1px solid rgba(181, 139, 69, 0.4);
+  border-radius: 9999px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.zorrah-search-input:focus {
+  border-color: #B5121B;
+  box-shadow: 0 0 0 1px #B5121B;
+}
+
+/* Sections and Categories */
+.zorrah-section {
+  padding-top: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(181, 139, 69, 0.2);
+  scroll-margin-top: 130px;
+}
+.zorrah-section:last-child {
+  border-bottom: none;
+}
+
+.zorrah-section-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.zorrah-section-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #B5121B;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+
+.zorrah-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
+}
+@media (min-width: 768px) {
+  .zorrah-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+    row-gap: 36px;
+  }
+}
+
+.zorrah-cat-block {
   scroll-margin-top: 175px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
+.zorrah-cat-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(181, 139, 69, 0.45);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.zorrah-cat-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #B5121B;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.zorrah-cat-count {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #5A5650;
+}
+
+/* Menu Item Row with Dotted Leader Line */
+.zorrah-item-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  column-gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(239, 229, 214, 0.4);
+  transition: color 0.15s ease;
+}
+
+.zorrah-item-left {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.zorrah-item-name {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.zorrah-item-dots {
+  flex-grow: 1;
+  margin: 0 10px;
+  border-bottom: 2px dotted rgba(181, 139, 69, 0.4);
+  min-width: 16px;
+  align-self: baseline;
+  position: relative;
+  top: -3px;
+}
+
+.zorrah-item-price {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #B5121B;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding-left: 4px;
+}
+
+/* Footer */
+.zorrah-footer {
+  width: 100%;
+  margin-top: 64px;
+  padding: 40px 16px 48px;
+  text-align: center;
+  background-color: rgba(239, 229, 214, 0.4);
+  border-top: 1px solid rgba(181, 139, 69, 0.2);
 }

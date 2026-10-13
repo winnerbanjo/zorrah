@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-16 pb-12 pt-10 px-4 text-center bg-[#EFE5D6]/40 border-t border-[#B58B45]/20">
+    <footer className="zorrah-footer w-full mt-16 pb-12 pt-10 px-4 text-center bg-[#EFE5D6]/40 border-t border-[#B58B45]/20">
       <div className="max-w-md mx-auto space-y-2">
         <h4 className="font-serif text-xl sm:text-2xl font-bold tracking-[0.2em] text-[#111111] uppercase">
           ZORRAH

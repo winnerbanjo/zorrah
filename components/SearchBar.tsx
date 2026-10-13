@@ -16,7 +16,7 @@ export default function SearchBar({
   isSearching,
 }: SearchBarProps) {
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-3">
+    <div className="zorrah-search-wrapper w-full max-w-xl mx-auto px-4 py-3">
       <div className="relative flex items-center">
         {/* Search Icon */}
         <div className="absolute left-3.5 pointer-events-none text-[#B58B45]" aria-hidden="true">
@@ -41,7 +41,7 @@ export default function SearchBar({
           value={query}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Search menu (e.g. chicken, rice, hennessy)..."
-          className="w-full min-h-[44px] pl-10 pr-10 py-2 text-sm sm:text-base font-sans bg-[#F8F3EA] text-[#191919] placeholder:text-[#5A5650]/70 rounded-full border border-[#B58B45]/40 focus:border-[#B5121B] focus:ring-1 focus:ring-[#B5121B] focus:outline-hidden transition-all shadow-2xs"
+          className="zorrah-search-input w-full min-h-[44px] pl-10 pr-10 py-2 text-sm sm:text-base font-sans bg-[#F8F3EA] text-[#191919] placeholder:text-[#5A5650]/70 rounded-full border border-[#B58B45]/40 focus:border-[#B5121B] focus:ring-1 focus:ring-[#B5121B] focus:outline-hidden transition-all shadow-2xs"
           aria-label="Search menu items"
         />
 
