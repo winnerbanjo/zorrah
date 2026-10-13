@@ -26,18 +26,20 @@ export default function StickyNav({
   const handleCategoryClick = (categoryId: string) => {
     const el = document.getElementById(`cat-${categoryId}`);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const navOffset = 125;
+      const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
   return (
     <nav
       aria-label="Menu section navigation"
-      className="zorrah-sticky-nav sticky top-0 z-30 w-full bg-[#F8F3EA]/95 backdrop-blur-md border-b border-[#B58B45]/25 shadow-xs"
+      className="zorrah-sticky-nav sticky top-0 z-30 w-full bg-[#F8F3EA]/97 backdrop-blur-md border-b border-[#B58B45]/25 shadow-xs py-2"
     >
-      <div className="max-w-4xl mx-auto px-3 py-2 sm:py-2.5">
-        {/* Main 3 Navigation Tabs */}
-        <div className="zorrah-tabs-container flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
+      <div className="max-w-4xl mx-auto">
+        {/* Main 3 Navigation Tabs - Start-aligned with safe 16px edge padding on mobile */}
+        <div className="zorrah-tabs-container flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar px-4 sm:px-6">
           {MENU_SECTIONS.map((section) => {
             const isSelected = activeSectionId === section.id;
             return (
@@ -59,12 +61,12 @@ export default function StickyNav({
           })}
         </div>
 
-        {/* Sub-Category Chips */}
+        {/* Sub-Category Chips - with safe 16px edge padding */}
         <div
           ref={chipsScrollRef}
-          className="zorrah-chips-container flex items-center gap-1.5 overflow-x-auto no-scrollbar mt-2 pt-1 border-t border-[#B58B45]/15 scroll-smooth"
+          className="zorrah-chips-container flex items-center gap-1.5 overflow-x-auto no-scrollbar mt-2 pt-1 border-t border-[#B58B45]/15 scroll-smooth px-4 sm:px-6"
         >
-          <span className="text-[10px] sm:text-[11px] font-sans uppercase font-bold text-[#B58B45] tracking-widest shrink-0 pl-1 pr-1">
+          <span className="text-[10px] sm:text-[11px] font-sans uppercase font-bold text-[#B58B45] tracking-widest shrink-0 pl-0.5 pr-1">
             Jump to:
           </span>
           {currentSection.categories.map((category) => (
@@ -72,7 +74,7 @@ export default function StickyNav({
               key={category.id}
               type="button"
               onClick={() => handleCategoryClick(category.id)}
-              className="zorrah-chip min-h-[36px] px-3 py-1 text-xs font-sans font-medium text-[#191919] bg-[#EFE5D6]/70 hover:bg-[#B5121B] hover:text-white rounded-md whitespace-nowrap transition-colors border border-[#B58B45]/25 cursor-pointer active:scale-95"
+              className="zorrah-chip min-h-[36px] px-3 py-1 text-xs font-sans font-medium text-[#191919] bg-[#EFE5D6]/80 hover:bg-[#B5121B] hover:text-white rounded-md whitespace-nowrap transition-colors border border-[#B58B45]/25 cursor-pointer active:scale-95 shrink-0"
             >
               {category.name}
             </button>

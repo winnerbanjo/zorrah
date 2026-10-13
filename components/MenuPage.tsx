@@ -48,12 +48,14 @@ export default function MenuPage() {
     );
   }, [filteredSections, isSearching]);
 
-  // Handle section tab selection
+  // Handle section tab selection with precise offset accounting for sticky navigation
   const handleSelectSection = useCallback((sectionId: string) => {
     setActiveSectionId(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navOffset = 120;
+      const top = element.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   }, []);
 
@@ -108,7 +110,7 @@ export default function MenuPage() {
       )}
 
       {/* 4. Menu Sections */}
-      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grow">
+      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 grow">
         {isSearching ? (
           // Search Results View
           <div className="pt-6 sm:pt-10">

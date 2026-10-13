@@ -25,10 +25,10 @@ export default function BackToTop() {
       type="button"
       onClick={scrollToTop}
       aria-label="Scroll back to top"
-      className="fixed bottom-5 right-5 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#B5121B] text-white shadow-lg flex items-center justify-center hover:bg-[#8F0E15] active:scale-95 transition-all duration-200 cursor-pointer border border-[#B58B45]/40"
+      className="fixed bottom-4 right-4 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#B5121B] text-white shadow-lg flex items-center justify-center hover:bg-[#8F0E15] active:scale-95 transition-all duration-200 cursor-pointer border border-[#B58B45]/40 opacity-90 hover:opacity-100"
     >
       <svg
-        className="w-5 h-5"
+        className="w-4 h-4 sm:w-5 sm:h-5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

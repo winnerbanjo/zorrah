@@ -94,53 +94,66 @@ body {
   margin: 0;
 }
 
-/* Sticky Navigation */
+/* Sticky Navigation - Fixed Mobile Padding & Overflow */
 .zorrah-sticky-nav {
   position: sticky;
   top: 0;
   z-index: 30;
-  background-color: rgba(248, 243, 234, 0.96);
+  background-color: rgba(248, 243, 234, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(181, 139, 69, 0.25);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  padding: 10px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 8px 0;
 }
 
 .zorrah-tabs-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
+  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
 }
-.zorrah-tabs-container::-webkit-scrollbar {
-  display: none;
+@media (min-width: 640px) {
+  .zorrah-tabs-container {
+    justify-content: center;
+    gap: 12px;
+    padding: 0 16px;
+  }
 }
 
 .zorrah-tab {
   min-height: 44px;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 9999px;
   font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
   border: 1px solid rgba(181, 139, 69, 0.35);
   background-color: rgba(239, 229, 214, 0.9);
   color: #191919;
+}
+@media (min-width: 640px) {
+  .zorrah-tab {
+    padding: 8px 24px;
+    font-size: 15px;
+  }
 }
 
 .zorrah-tab.active {
   background-color: #B5121B !important;
   color: #FFFFFF !important;
   border-color: #B5121B !important;
-  box-shadow: 0 2px 6px rgba(181, 18, 27, 0.35);
+  box-shadow: 0 2px 8px rgba(181, 18, 27, 0.35);
 }
 
 .zorrah-chips-container {
@@ -149,12 +162,16 @@ body {
   gap: 6px;
   overflow-x: auto;
   scrollbar-width: none;
-  margin-top: 8px;
-  padding-top: 6px;
+  margin-top: 6px;
+  padding: 6px 16px 2px;
   border-top: 1px solid rgba(181, 139, 69, 0.15);
+  -webkit-overflow-scrolling: touch;
 }
-.zorrah-chips-container::-webkit-scrollbar {
-  display: none;
+@media (min-width: 640px) {
+  .zorrah-chips-container {
+    justify-content: center;
+    padding: 6px 16px 2px;
+  }
 }
 
 .zorrah-chip {
@@ -169,6 +186,7 @@ body {
   color: #191919;
   border: 1px solid rgba(181, 139, 69, 0.25);
   transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 .zorrah-chip:hover {
   background-color: #B5121B;
@@ -203,11 +221,12 @@ body {
 }
 
 /* Sections and Categories */
+.scroll-section,
 .zorrah-section {
   padding-top: 36px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(181, 139, 69, 0.2);
-  scroll-margin-top: 130px;
+  scroll-margin-top: 135px;
 }
 .zorrah-section:last-child {
   border-bottom: none;
@@ -241,8 +260,9 @@ body {
   }
 }
 
+.scroll-category,
 .zorrah-cat-block {
-  scroll-margin-top: 175px;
+  scroll-margin-top: 145px;
   padding-top: 12px;
   padding-bottom: 8px;
 }
